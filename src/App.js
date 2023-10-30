@@ -16,7 +16,6 @@ const App = () => {
     "?",
     "?",
   ]);
-
   const handleSquareClick = (clickedSquareIndex) => {
     alert(clickedSquareIndex);
   };
@@ -35,6 +34,8 @@ const App = () => {
             handleSquareClick={handleSquareClick}
           />
           )
+          console.log(value, index)
+          return <Square value={value}/>
         })}
       </div>
     </>
