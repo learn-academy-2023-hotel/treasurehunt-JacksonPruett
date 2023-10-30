@@ -16,3 +16,9 @@ h1 {
   width: 610px;
   margin: 0 auto;
 }
+
+.restart {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
