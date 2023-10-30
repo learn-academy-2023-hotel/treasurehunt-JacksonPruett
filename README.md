@@ -64,9 +64,23 @@ As a developer, you are tasked with creating a treasure hunt game. The user will
 - added handleSquareClick to App.js
 -passed handleSquareClick to Square to get the index back to App.js (using functional props)
 
-- As a user, when I click on one of the question marks, a tree emoji appears instead of the alert.
+- As a user, when I click on one of the question marks, a alien emoji appears instead of the alert.
+
+- made copy of board using spread operator
+- updated value of square at particular index to be a alien
+
 - As a user, if I select the winning square, the question mark will become a treasure emoji. If I select the losing square, the question mark will become a bomb emoji.
+
+- branch: treasure bomb
+
 - As a user, I can click on a “Play Again” button that will restart the game.
+
+- branch: play again
+- added new div restart
+- added button to restart div
+- added onClick to restart div button
+- passed window.location.reload() method to onClick
+
 - As a user, I can see a counter that shows how many guesses are remaining. The counter starts at five and decrements by one every time I click on a square that is neither the treasure nor the bomb.
 - As a user, I can see a message stating that I won the game by selecting the square that contains the treasure.
 - As a user, I can see a message stating that I lost the game by selecting the square that contains the bomb.

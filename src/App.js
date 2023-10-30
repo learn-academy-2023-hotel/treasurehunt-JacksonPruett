@@ -15,16 +15,38 @@ const App = () => {
     "?",
     "?",
     "?",
-  ])
+  ]);
+
+  const [treasureLocation, setTreasureLocation] = useState(
+    Math.floor(Math.random() * board.length)
+  );
+  const [BombLocation, setBombLocation] = useState(
+    Math.floor(Math.random() * board.length)
+  );
 
   const handleSquareClick = (clickedSquareIndex) => {
     // variable holding copy of current state
-    let updatedBoard = [...board]
-    // use index to update the clicked square's value with emoji
-    updatedBoard[clickedSquareIndex] = "👾"
-    // update state with the new board
-    setBoard(updatedBoard)
+    let updatedBoard = [...board];
+    // set condition for if treasure location is same as the clicked square's index show a treasure
+    if (clickedSquareIndex === treasureLocation) {
+      // then reassign state value at that index to treasure emoji
+      updatedBoard[clickedSquareIndex] = "💎";
+      // setBoard(updatedBoard)
+    } else if (clickedSquareIndex === BombLocation) {
+      updatedBoard[clickedSquareIndex] = "💣";
+      // setBoard[updatedBoard]
+    } else {
+      // use index from clickedSquareIndex to update the clicked square's value with emoji using bracket notation
+      updatedBoard[clickedSquareIndex] = "👾";
+      // update state with the new board
+      // setBoard(updatedBoard)
+    }
+    setBoard(updatedBoard);
   };
+
+  const refreshPage = () => { 
+    window.location.reload() 
+}
 
   return (
     <>
@@ -34,15 +56,18 @@ const App = () => {
         {board.map((value, index) => {
           console.log(value, index);
           return (
-          <Square
-            value={value}
-            index={index}
-            handleSquareClick={handleSquareClick}
-          />
-          )
-          console.log(value, index)
-          return <Square value={value}/>
+            <Square
+              value={value}
+              index={index}
+              handleSquareClick={handleSquareClick}
+            />
+          );
         })}
+      </div>
+      <div className="restart">  
+      <button onClick={refreshPage}>
+            Play again?
+      </button>
       </div>
     </>
   );
