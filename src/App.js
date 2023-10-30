@@ -16,6 +16,9 @@ const App = () => {
     "?",
     "?",
   ]);
+  const handleSquareClick = (clickedSquareIndex) => {
+    alert(clickedSquareIndex);
+  };
 
   return (
     <>
@@ -23,6 +26,14 @@ const App = () => {
       <div className="board">
         {/* Map over array and return a square for each element */}
         {board.map((value, index) => {
+          console.log(value, index);
+          return (
+          <Square
+            value={value}
+            index={index}
+            handleSquareClick={handleSquareClick}
+          />
+          )
           console.log(value, index)
           return <Square value={value}/>
         })}
