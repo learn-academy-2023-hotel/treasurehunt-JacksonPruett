@@ -15,9 +15,15 @@ const App = () => {
     "?",
     "?",
     "?",
-  ]);
+  ])
+
   const handleSquareClick = (clickedSquareIndex) => {
-    alert(clickedSquareIndex);
+    // variable holding copy of current state
+    let updatedBoard = [...board]
+    // use index to update the clicked square's value with emoji
+    updatedBoard[clickedSquareIndex] = "👾"
+    // update state with the new board
+    setBoard(updatedBoard)
   };
 
   return (
