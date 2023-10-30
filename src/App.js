@@ -17,6 +17,8 @@ const App = () => {
     "?",
   ]);
 
+const [guess, setGuess] = useState(5)
+
   const [treasureLocation, setTreasureLocation] = useState(
     Math.floor(Math.random() * board.length)
   );
@@ -38,15 +40,17 @@ const App = () => {
     } else {
       // use index from clickedSquareIndex to update the clicked square's value with emoji using bracket notation
       updatedBoard[clickedSquareIndex] = "👾";
+      setGuess(guess - 1)
       // update state with the new board
       // setBoard(updatedBoard)
     }
     setBoard(updatedBoard);
   };
 
-  const refreshPage = () => { 
+  const refresh = () => { 
     window.location.reload() 
 }
+
 
   return (
     <>
@@ -65,12 +69,13 @@ const App = () => {
         })}
       </div>
       <div className="restart">  
-      <button onClick={refreshPage}>
+      <button onClick={refresh}>
             Play again?
       </button>
       </div>
+      <p className="guess-box">Guesses Remaining: {guess}</p>
     </>
   );
-};
+}
 
 export default App;
