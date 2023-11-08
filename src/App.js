@@ -17,7 +17,7 @@ const App = () => {
     "?",
   ]);
 
-const [guess, setGuess] = useState(5)
+  const [guess, setGuess] = useState(5);
 
   const [treasureLocation, setTreasureLocation] = useState(
     Math.floor(Math.random() * board.length)
@@ -26,6 +26,9 @@ const [guess, setGuess] = useState(5)
     Math.floor(Math.random() * board.length)
   );
 
+  const refresh = () => {
+    window.location.reload();
+  };
   const handleSquareClick = (clickedSquareIndex) => {
     // variable holding copy of current state
     let updatedBoard = [...board];
@@ -33,24 +36,22 @@ const [guess, setGuess] = useState(5)
     if (clickedSquareIndex === treasureLocation) {
       // then reassign state value at that index to treasure emoji
       updatedBoard[clickedSquareIndex] = "💎";
+      alert("Winner!")
       // setBoard(updatedBoard)
     } else if (clickedSquareIndex === BombLocation) {
       updatedBoard[clickedSquareIndex] = "💣";
+      alert("Loser!")
+      // return window.location.reload()
       // setBoard[updatedBoard]
     } else {
       // use index from clickedSquareIndex to update the clicked square's value with emoji using bracket notation
       updatedBoard[clickedSquareIndex] = "👾";
-      setGuess(guess - 1)
+      setGuess(guess - 1);
       // update state with the new board
       // setBoard(updatedBoard)
     }
     setBoard(updatedBoard);
   };
-
-  const refresh = () => { 
-    window.location.reload() 
-}
-
 
   return (
     <>
@@ -68,14 +69,12 @@ const [guess, setGuess] = useState(5)
           );
         })}
       </div>
-      <div className="restart">  
-      <button onClick={refresh}>
-            Play again?
-      </button>
+      <div className="restart">
+        <button onClick={refresh}>Play again?</button>
       </div>
       <p className="guess-box">Guesses Remaining: {guess}</p>
     </>
   );
-}
+};
 
 export default App;

@@ -83,11 +83,23 @@ As a developer, you are tasked with creating a treasure hunt game. The user will
 
 - As a user, I can see a counter that shows how many guesses are remaining. The counter starts at five and decrements by one every time I click on a square that is neither the treasure nor the bomb.
 
+- created another useState called guess
+- invoked setGuess on line 43 under my alien or "tree" emoji to count down in incremenets of 1
+- created a paragraph with className guess-box and passed in guess state
 
 
 - As a user, I can see a message stating that I won the game by selecting the square that contains the treasure.
+
+- added an alert on line 36 that says "Winner!"
+
 - As a user, I can see a message stating that I lost the game by selecting the square that contains the bomb.
+
+- added an alert on line 40 that says "Loser!"
+
 - As a user, I cannot continue to play the game after I win or lose.
+
+- 
+
 - As a user, I can see a message informing me that I lost the game when I run out of turns (the counter reaches zero).
 
 ### 🏔 Stretch Goals
