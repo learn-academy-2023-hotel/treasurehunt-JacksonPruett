@@ -18,7 +18,6 @@ const App = () => {
   ]);
 
   const [guess, setGuess] = useState(5);
-
   const [treasureLocation, setTreasureLocation] = useState(
     Math.floor(Math.random() * board.length)
   );
@@ -55,8 +54,9 @@ const App = () => {
 
   return (
     <>
-      <h1>Treasure Hunt Game</h1>
-      <div className="board">
+      <h1>Alien Invasion</h1>
+      <div className="outer-box">  
+        <div className="board">
         {/* Map over array and return a square for each element */}
         {board.map((value, index) => {
           console.log(value, index);
@@ -72,7 +72,8 @@ const App = () => {
       <div className="restart">
         <button onClick={refresh}>Play again?</button>
       </div>
-      <p className="guess-box">Guesses Remaining: {guess}</p>
+      <p className="guess-box">Galactic Currency Remaining: {guess}</p>
+    </div>    
     </>
   );
 };
